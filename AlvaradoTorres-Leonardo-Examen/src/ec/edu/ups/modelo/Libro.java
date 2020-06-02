@@ -19,7 +19,7 @@ public class Libro implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private String codigo;
+	private int codigo;
 	private String nombre;
 	@Column(unique = true)
 	private String isbn;
@@ -33,7 +33,7 @@ public class Libro implements Serializable {
 	}
 
 
-	public Libro(String codigo, String nombre, String isbn, int numeroPaginas, Set<Capitulo> capitulos) {
+	public Libro(int codigo, String nombre, String isbn, int numeroPaginas, Set<Capitulo> capitulos) {
 		super();
 		capitulos = new HashSet<Capitulo>();
 		this.codigo = codigo;
@@ -44,12 +44,12 @@ public class Libro implements Serializable {
 	}
 
 
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
@@ -101,31 +101,10 @@ public class Libro implements Serializable {
 	}
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		return result;
-	}
+	
 
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Libro other = (Libro) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
-			return false;
-		return true;
-	}
+	
 	
 	
 	

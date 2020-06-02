@@ -15,10 +15,11 @@ public class Autor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	private int codigo;
 	private String nombre;
 	private String nacionalidad;
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "capitulo")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "autor")
 	private Capitulo capitulo;
 	
 	public Autor() {

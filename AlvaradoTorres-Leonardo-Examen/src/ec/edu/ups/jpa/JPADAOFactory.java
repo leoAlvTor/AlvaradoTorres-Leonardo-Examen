@@ -9,19 +9,19 @@ public class JPADAOFactory extends DAOFactory{
 
 	@Override
 	public LibroDAO getLibroDAO() {
-		return null;
+		return new JPALibroDAO();
 	}
 
 	@Override
 	public CapituloDAO getCapituloDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new JPACapituloDAO();
 	}
 
 	@Override
 	public AutorDAO getAutorDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new JPAAutorDAO();
 	}
 	
 	

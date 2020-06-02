@@ -7,6 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ec.edu.ups.jpa.JPADAOFactory;
+import ec.edu.ups.jpa.JPALibroDAO;
+import ec.edu.ups.modelo.Autor;
+import ec.edu.ups.modelo.Capitulo;
+import ec.edu.ups.modelo.Libro;
+import ec.ups.edu.dao.AutorDAO;
+import ec.ups.edu.dao.LibroDAO;
+
 /**
  * Servlet implementation class ServletLibro
  */
@@ -25,16 +33,25 @@ public class ServletLibro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("INICIA EL PROCESO <------------------");
+		
+		JPADAOFactory.getFactory().getLibroDAO().create(new Libro(0, "Hola!", "12", 500, null));
+		
+		
+		
+		System.out.println("FINALIZA EL PROCESO ------------------>");
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// Proceso para crear un libro
+		
+		
 	}
+	
+	
 
 }

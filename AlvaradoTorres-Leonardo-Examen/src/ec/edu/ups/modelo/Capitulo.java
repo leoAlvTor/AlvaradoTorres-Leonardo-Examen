@@ -14,6 +14,7 @@ public class Capitulo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue
 	private int codigo;
 	private int numero;
 	private String titulo;
