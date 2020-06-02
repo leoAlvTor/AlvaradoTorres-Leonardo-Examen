@@ -1,6 +1,8 @@
 package ec.ups.edu.controlador;
 
 import java.io.IOException;
+import java.util.HashSet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,18 +35,22 @@ public class ServletLibro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("INICIA EL PROCESO <------------------");
+		Capitulo cap = JPADAOFactory.getFactory().getCapituloDAO().read(553);
+		Libro libro = JPADAOFactory.getFactory().getLibroDAO().read(551);
+		Autor autor = JPADAOFactory.getFactory().getAutorDAO().read(552);
+		cap.setTitulo("El perro y el gato");
+		cap.setLibro(libro);
+		cap.setAutor(autor);
 		
-		JPADAOFactory.getFactory().getLibroDAO().create(new Libro(0, "Hola!", "12", 500, null));
+		//System.out.println(JPADAOFactory.getFactory().getCapituloDAO().update(cap));
+		//System.out.println(JPADAOFactory.getFactory().getCapituloDAO().update(cap));
 		
-		
-		
-		System.out.println("FINALIZA EL PROCESO ------------------>");
-		
+		//JPADAOFactory.getFactory().getLibroDAO().getLibrosAutorCapitulo(autor, cap);
+		System.out.println(JPADAOFactory.getFactory().getLibroDAO().getLibrosAutorCapitulo(autor, cap));
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest requesidt, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Proceso para crear un libro
