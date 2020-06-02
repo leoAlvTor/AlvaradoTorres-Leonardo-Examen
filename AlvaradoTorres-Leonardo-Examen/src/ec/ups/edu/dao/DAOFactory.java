@@ -1,5 +1,7 @@
 package ec.ups.edu.dao;
 
+import ec.edu.ups.jpa.JPADAOFactory;
+
 public abstract class DAOFactory {
 
 	protected static DAOFactory factory = new JPADAOFactory();
@@ -10,6 +12,6 @@ public abstract class DAOFactory {
 	
 	public abstract LibroDAO getLibroDAO();
 	public abstract CapituloDAO getCapituloDAO();
-	public abstract TelefonoDAO getTelefonoDAO();
+	public abstract AutorDAO getAutorDAO();
 	
 }
